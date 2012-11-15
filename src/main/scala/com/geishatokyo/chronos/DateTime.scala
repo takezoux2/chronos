@@ -16,6 +16,10 @@ object DateTime{
     new DateTime(c)
   }
   
+  def apply(year : Int, month : Int, day : Int) = {
+    now.set(Just(YearMonthAndDay(year,month,day)))
+  }
+  
   implicit def fromDate(date : Date) = {
     val c = Calendar.getInstance
     c.setTime(date)

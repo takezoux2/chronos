@@ -63,6 +63,14 @@ case class MonthAndDay(m : Int, d : Int) extends Justable{
 case class YearMonthAndDay(y : Int, m : Int, d : Int) extends Justable{
   val loaf = 1.years
 }
+
+object YearMonthAndDay{
+
+  implicit def toDateTime( ymd : YearMonthAndDay) = {
+    DateTime.now.set( just(ymd))
+  }
+}
+
 case class Just(tf : Justable) extends TimeField{
 }
 
