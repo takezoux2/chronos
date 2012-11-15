@@ -1,7 +1,12 @@
 package com.geishatokyo.chronos
 
 
-class Duration(val milliSeconds : Long){
+trait TDuration{
+}
+
+
+
+case class Duration(val milliSeconds : Long) extends TDuration{
   import TimeUnit._
   
   def milliSecond = milliSeconds
@@ -30,4 +35,6 @@ class Duration(val milliSeconds : Long){
   def *( v : Int) = new Duration(milliSeconds * v)
   def /(v : Int) = new Duration(milliSeconds / v)
   
+  
+  def unary_- = new Duration(-milliSeconds)
 }
